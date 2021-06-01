@@ -46,7 +46,7 @@ class Lanraragi < Formula
     ENV.prepend_path "PERL5LIB", "#{libexec}/lib"
     ENV["CFLAGS"] = "-I#{libexec}/include"
     # https://stackoverflow.com/questions/60521205/how-can-i-install-netssleay-with-perlbrew-in-macos-catalina
-    ENV["OPENSSL_PREFIX"] = "#{Formula["openssl@1.1"]}/1.1.1g"
+    ENV["OPENSSL_PREFIX"] = Formula["openssl@1.1"].opt_prefix
 
     imagemagick = Formula["imagemagick"]
     resource("Image::Magick").stage do
@@ -100,7 +100,7 @@ class Lanraragi < Formula
     # brew-core uses this to test user-facing functionality by checking for the redis table flip.
     # As this is used for CI here, it's more logical to run the test suite instead.
     ENV["PERL5LIB"] = libexec/"lib/perl5"
-    ENV["LRR_LOG_DIRECTORY"] = testpath/"log"
+    ENV["LRR_LOG_DIRECTORY"] = ENV["LRR_TEMP_DIRECTORY"] = testpath
 
     system "npm", "--prefix", libexec, "test"
 
