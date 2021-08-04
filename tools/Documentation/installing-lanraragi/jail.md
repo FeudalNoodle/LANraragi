@@ -122,7 +122,9 @@ In many setups jails are running on fast but small drives while the bulk of data
 
 ### Updating
 
-{% page-ref page="../installing-lanraragi/source.md#updating" %}
+{% hint style="info" %}
+Updating works the same as when installing from source [installing from source](https://sugoi.gitbook.io/lanraragi/installing-lanraragi/source#updating).
+{% endhint %}
 
 {% hint style="info" %}
 By default, LRR listens on all IPv4 Interfaces on port 3000, unsecured HTTP.
